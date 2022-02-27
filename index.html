@@ -27,8 +27,11 @@
       let to = document.getElementById("to").value;
       document.getElementsByTagName("h4")[0].innerHTML = `${from} to ${to}`;
       document.getElementById("menu").innerHTML = "";
+
       let rt = information.filter(
-        (bus) => bus.route.includes(from) && bus.route.includes(to)
+        (bus) =>
+          bus.route.toLowerCase().includes(from.toLowerCase()) &&
+          bus.route.toLowerCase().includes(to.toLowerCase())
       );
 
       document.getElementById("search-result").innerText = rt.length;

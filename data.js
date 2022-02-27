@@ -845,7 +845,7 @@ const information = [
       "Mirpur DOHS ⇄ Kalshi ⇄ ECB Square ⇄ Garrison (Cantonment) ⇄ Adamjee School ⇄ Workshop ⇄ Saudi Colony ⇄ Jahangir Gate ⇄ Farmgate ⇄ Kawran Bazar",
   },
   {
-    busName: "Turag Bus Route (ট্রাষ্ট ট্রান্সপোর্ট বাস)",
+    busName: "Turag Bus Route (তুরাগ ট্রান্সপোর্ট বাস)",
     route:
       "Jatrabari ⇄ Sayedabad ⇄ Mugdapara ⇄ Bashabo ⇄ Khilgaon ⇄ Malibagh Moor ⇄ Rampura Bazar ⇄ Rampura Bridge ⇄ Merul ⇄ Badda ⇄ Uttar Badda ⇄ Bashtola ⇄ Notun Bazar ⇄ Nadda ⇄ Bashundhara ⇄ Jamuna Future Park ⇄ Kuril Chourasta ⇄ Kuril Bishwa Road ⇄ Khilkhet ⇄ Airport ⇄ Jashimuddin (Uttara) ⇄ Rajlakshmi ⇄ Azampur ⇄ House Building ⇄ Abdullahpur ⇄ Tongi",
   },
