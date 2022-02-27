@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dhaka-local-bus-route</title>
+  </head>
+  <body>
+    <input type="text" placeholder="from" id="from" />
+    <br />
+    <input type="text" placeholder="to" id="to" />
+    <br />
+    <button id="search">search route</button>
+    <br />
+    search result:
+    <div style="display: inline" id="search-result"></div>
+    <div>
+      <h4></h4>
+      <ul id="menu"></ul>
+    </div>
+  </body>
+  <script src="./data.js"></script>
+  <script>
+    document.getElementById("search").addEventListener("click", function () {
+      let from = document.getElementById("from").value;
+      let to = document.getElementById("to").value;
+      document.getElementsByTagName("h4")[0].innerHTML = `${from} to ${to}`;
+      document.getElementById("menu").innerHTML = "";
+      let rt = information.filter(
+        (bus) => bus.route.includes(from) && bus.route.includes(to)
+      );
+
+      document.getElementById("search-result").innerText = rt.length;
+      let buses = rt.map((bus) => {
+        let div = document.createElement("div");
+        let p = document.createElement("p");
+        let li = document.createElement("li");
+        p.textContent = bus.busName;
+        li.textContent = bus.route;
+        div.appendChild(p);
+        div.appendChild(li);
+        div.style.backgroundColor = "lightgray";
+        div.style.padding = "20px";
+        div.style.margin = "20px";
+        p.style.fontSize = "1.2rem";
+        return div;
+      });
+
+      for (let index = 0; index < buses.length; index++) {
+        document.getElementById("menu").appendChild(buses[index]);
+      }
+
+      console.log(buses);
+    });
+  </script>
+</html>
