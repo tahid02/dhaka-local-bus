@@ -19,13 +19,14 @@
       <h4></h4>
       <ul id="menu"></ul>
     </div>
+    <mark></mark>
   </body>
   <script src="./data.js"></script>
   <script>
     document.getElementById("search").addEventListener("click", function () {
       let from = document.getElementById("from").value;
       let to = document.getElementById("to").value;
-      document.getElementsByTagName("h4")[0].innerHTML = `${from} to ${to}`;
+      document.getElementsByTagName("h4")[0].innerHTML = `${from} ⇄ ${to}`;
       document.getElementById("menu").innerHTML = "";
 
       let rt = information.filter(
@@ -40,7 +41,10 @@
         let p = document.createElement("p");
         let li = document.createElement("li");
         p.textContent = bus.busName;
-        li.textContent = bus.route;
+        li.innerHTML = bus.route.replaceAll(
+          from,
+          (match) => `<mark> ${from}</mark> `
+        );
         div.appendChild(p);
         div.appendChild(li);
         div.style.backgroundColor = "lightgray";
