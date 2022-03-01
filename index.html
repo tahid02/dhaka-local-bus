@@ -35,16 +35,27 @@
           bus.route.toLowerCase().includes(to.toLowerCase())
       );
 
+      // created pattern  to highlight the departure and destination as user inputs
+      const wordToReplacePattern = () => {
+        let wordToReplace = `${from} ${to}`;
+        let splittedWords = wordToReplace.split(/\s/);
+        let pattern = new RegExp(`(${splittedWords.join("|")})`, "g");
+        return pattern;
+      };
+
       document.getElementById("search-result").innerText = rt.length;
+
+      // created <div> containing every filtered(as user searched)  bus information and puts those div elements in an array
       let buses = rt.map((bus) => {
         let div = document.createElement("div");
         let p = document.createElement("p");
         let li = document.createElement("li");
         p.textContent = bus.busName;
         li.innerHTML = bus.route.replaceAll(
-          from,
-          (match) => `<mark> ${from}</mark> `
+          wordToReplacePattern(),
+          (match) => `<mark> ${match}</mark> ` // highlighting searched places
         );
+
         div.appendChild(p);
         div.appendChild(li);
         div.style.backgroundColor = "lightgray";
