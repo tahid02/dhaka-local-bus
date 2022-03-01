@@ -40,9 +40,7 @@
 
       // created pattern  to highlight the departure and destination as user inputs
       const wordToReplacePattern = () => {
-        let wordToReplace = `${capitalizeFirstLetter(
-          from
-        )} ${capitalizeFirstLetter(to)}`;
+        let wordToReplace = `${from} ${to}`;
         let splittedWords = wordToReplace.split(/\s/);
         let pattern = new RegExp(`(${splittedWords.join("|")})`, "g");
         return pattern;
@@ -56,9 +54,9 @@
         let p = document.createElement("p");
         let li = document.createElement("li");
         p.textContent = bus.busName;
-        li.innerHTML = bus.route.replaceAll(
+        li.innerHTML = bus.route.toLowerCase().replaceAll(
           wordToReplacePattern(),
-          (match) => `<mark> ${match}</mark> ` // highlighting searched places
+          (match) => `<mark> ${capitalizeFirstLetter(match)}</mark> ` // highlighting searched places
         );
 
         div.appendChild(p);
