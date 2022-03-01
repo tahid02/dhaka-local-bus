@@ -29,6 +29,9 @@
       document.getElementsByTagName("h4")[0].innerHTML = `${from} ⇄ ${to}`;
       document.getElementById("menu").innerHTML = "";
 
+      function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
       let rt = information.filter(
         (bus) =>
           bus.route.toLowerCase().includes(from.toLowerCase()) &&
@@ -37,7 +40,9 @@
 
       // created pattern  to highlight the departure and destination as user inputs
       const wordToReplacePattern = () => {
-        let wordToReplace = `${from} ${to}`;
+        let wordToReplace = `${capitalizeFirstLetter(
+          from
+        )} ${capitalizeFirstLetter(to)}`;
         let splittedWords = wordToReplace.split(/\s/);
         let pattern = new RegExp(`(${splittedWords.join("|")})`, "g");
         return pattern;
