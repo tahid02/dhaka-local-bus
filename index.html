@@ -24,8 +24,8 @@
   <script src="./data.js"></script>
   <script>
     document.getElementById("search").addEventListener("click", function () {
-      let from = document.getElementById("from").value;
-      let to = document.getElementById("to").value;
+      let from = document.getElementById("from").value.trim();
+      let to = document.getElementById("to").value.trim();
       document.getElementsByTagName("h4")[0].innerHTML = `${from} ⇄ ${to}`;
       document.getElementById("menu").innerHTML = "";
 
